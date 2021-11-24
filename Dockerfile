@@ -9,7 +9,7 @@ RUN apk add -U --no-cache ca-certificates git gcc musl-dev
 
 COPY . .
 
-RUN go build
+RUN go build -ldflags="-extldflags=-static" -tags sqlite_omit_load_extension
 
 
 FROM scratch
